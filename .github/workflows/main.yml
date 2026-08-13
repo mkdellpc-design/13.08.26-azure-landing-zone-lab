@@ -40,7 +40,7 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -var="location=centralindia"
+        run: terraform plan
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -var="location=centralindia"
+        run: terraform apply -auto-approve
