@@ -1,5 +1,4 @@
-# Terraform CI/CD pipeline
-name: Terraform CI/CD
+name: Terraform Deploy
 
 on:
   push:
@@ -32,15 +31,20 @@ jobs:
 
       - name: Terraform Format
         run: terraform fmt -check
+        working-directory: ./parent_module
 
       - name: Terraform Init
         run: terraform init
+        working-directory: ./parent_module
 
       - name: Terraform Validate
         run: terraform validate
+        working-directory: ./parent_module
 
       - name: Terraform Plan
         run: terraform plan
+        working-directory: ./parent_module
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        working-directory: ./parent_module
